@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SchToDo|Schedule your work</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="box" id="heading">
+        <h1> <%= title %></h1>
+    </div>
+
+    <div class="box">
+        <% task.forEach(element => { %>
+            <form action="/remove" method="post">
+                <div class="item">
+                    <input type="checkbox" name="removeItems" value="<%= element._id %>" onChange="this.form.submit()">
+                    <p> <%= element.itemName %> </p>
+                </div>
+                
+                <input type="hidden" name="itemList" value="<%= title %>">
+            </form>
+        <% }) %>
+
+        <form class="item" action="/" method="post">
+            <input type="text" name="listItems" id="list-items" placeholder="mark you work" autocomplete="off">
+            <button type="submit" name="submit" value="<%= title %>">+</button>
+        </form>
+    </div>
+</body>
+</html>

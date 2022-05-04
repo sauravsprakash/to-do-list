@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Days in weeks</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="box" id="heading">
+        <h1> <%= dayName %></h1>
+    </div>
+
+    <div class="box">
+        <% food.forEach(element => { %>
+            <div class="item">
+                <input type="checkbox">
+                <p> <%= element %> </p>
+            </div>
+        <% }) %>
+
+        <form class="item" action="/" method="post">
+            <input type="text" name="listItems" id="list-items" placeholder="mark you work" autocomplete="off">
+            <button type="submit" name="submit">+</button>
+        </form>
+    </div>
+</body>
+</html>
